@@ -1,0 +1,28 @@
+
+<p id>"notice"<%= notice %></p>
+
+<h1>Whatever, this is just a header</h1>
+
+<!--  -->
+
+
+  <div class="row">
+  <% @t.each do |x| %>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+    <div class="panel-body">
+    	<%= x.user.username %><br>
+
+      	<%= x.message %><br>
+      	<% if current_user.id == x.user.id %>
+      	<%= link_to 'Show', x %> 
+      	<%= link_to 'Edit', edit_tweet_path(x) %> 
+      	<%= link_to 'Destroy', x, method: :delete, data: {confirm: 'Are you sure?' } %>
+      	<% end %>
+    </div>
+</div>
+</div>
+<% end %>
+</div>
+
+
