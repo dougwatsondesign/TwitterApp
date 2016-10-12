@@ -11,7 +11,8 @@
   <div class="col-md-4">
     <div class="panel panel-default">
     <div class="panel-body">
-    	<%= x.user.username %><br>
+    	
+    	<%= link_to x.user.username, profile_path(id: x.user.id) %><br>
 
       	<%= x.message %><br>
       	<% if current_user.id == x.user.id %>

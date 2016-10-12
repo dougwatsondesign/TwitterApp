@@ -14,6 +14,9 @@ class TweetsController < ApplicationController
 	def show
 	end
 
+	def edit
+	end
+
 	def create
 		@tweet = Tweet.new(tweet_params)
 		if @tweet.save
@@ -29,6 +32,12 @@ end
 		else
 			render :edit
 		end
+	end
+
+	def destroy
+		@tweet.destroy
+		redirect_to tweets_url, notice: 'Tweet was successfully destroyed.'
+
 	end
 
 

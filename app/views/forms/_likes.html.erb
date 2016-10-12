@@ -1,0 +1,15 @@
+<% if current_user.likes?(@tweet) %>
+	<%= link_to "Unlike", tweet_like_path(@tweet), method: :post %>
+<!-- Remember: the link_to is a GET, so we have to specify that it's not getting it's posting, which is what the method is doing -->
+<% else %>
+	<%= link_to "Like", tweet_like_path(@tweet), method: :post %>
+<% end %>
+
+<%= @tweet.likes.count %>
+
+Liked by:
+<% @tweet.likes.each do |like| %>
+	<br>
+	<%= like.user.username %>
+	<br>
+<% end %>
